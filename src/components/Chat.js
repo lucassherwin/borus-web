@@ -13,7 +13,7 @@ function App() {
 	const [user] = useAuthState(auth);
 
 	return (
-		<div className='App'>
+		<div className='Chat'>
 			<header>
 				<h1>Chat</h1>
 				<SignOut />
