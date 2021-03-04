@@ -1,16 +1,28 @@
 import React from 'react';
-// import firebase from 'firebase/app';
-// import 'firebase/firestore';
-// import 'firebase/auth';
-// import 'firebase/analytics';
-import { auth, firestore, analytics, firebase } from './firebase/firebase.js';
-import { useAuthState } from 'react-firebase-hooks/auth';
-import { useCollectionData } from 'react-firebase-hooks/firestore';
+import './App.css';
 
-export default function App() {
+import { auth } from './firebase/firebase';
+
+import { useAuthState } from 'react-firebase-hooks/auth';
+
+import SignIn from './components/SignIn';
+import SignOut from './components/SignOut';
+import ChatRoom from './components/ChatRoom';
+
+function App() {
+	const [user] = useAuthState(auth);
+
 	return (
-		<div>
-			<h1>Borpus</h1>
+		<div className='App'>
+			<header>
+				<h1>⚛️🔥💬</h1>
+				<SignOut />
+			</header>
+
+			<section>{user ? <ChatRoom /> : <SignIn />}</section>
 		</div>
 	);
 }
+
+export default App;
+// chat code and css from here https://www.youtube.com/watch?v=zQyrwxMPm88
