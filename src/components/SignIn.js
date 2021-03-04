@@ -1,9 +1,21 @@
 import React from 'react';
+import firebase from '../firebase/firebase';
+import { auth } from '../firebase/firebase';
 
-export default function signIn({ signInWithGoogle }) {
+export default function SignIn() {
+	const signInWithGoogle = () => {
+		const provider = new firebase.auth.GoogleAuthProvider();
+		auth.signInWithPopup(provider);
+	};
+
 	return (
-		<div>
-			<button onClick={signInWithGoogle}>Sign in with Google</button>
-		</div>
+		<>
+			<button className='sign-in' onClick={signInWithGoogle}>
+				Sign in with Google
+			</button>
+			<p>
+				Do not violate the community guidelines or you will be banned for life!
+			</p>
+		</>
 	);
 }
