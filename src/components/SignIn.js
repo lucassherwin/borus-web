@@ -10,6 +10,7 @@ export default function SignIn() {
 
 	return (
 		<>
+      <p style={{textAlign: 'center'}}>You must be signed in to view the live chat</p>
 			<button className='sign-in' onClick={signInWithGoogle}>
 				Sign in with Google
 			</button>
