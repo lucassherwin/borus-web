@@ -6,13 +6,14 @@ import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
 
 const useStyles = makeStyles({
-  root: {
+  card: {
     minWidth: 275,
-  },
-  bullet: {
-    display: 'inline-block',
-    margin: '0 2px',
-    transform: 'scale(0.8)',
+    maxWidth: 400,
+    height: 250,
+    display: 'block',
+    marginLeft: 'auto',
+    marginRight: 'auto',
+    width: '40%'
   },
   title: {
     fontSize: 14,
@@ -20,16 +21,23 @@ const useStyles = makeStyles({
   pos: {
     marginBottom: 12,
   },
+  title: {
+    textAlign: 'center'
+  },
+  content: {
+    color: 'black'
+  }
 });
 
-export default function PostCard() {
+export default function PostCard({ title, content }) { // eventually add in author, votes, etc
   const classes = useStyles();
 
   return (
     <div>
-      <Card className={classes.root} variant='outlined'>
-        <CardContent className={classes.title}>
-          <Typography></Typography>
+      <Card className={classes.card} variant='outlined'>
+        <CardContent>
+          <h2 className={classes.title}>{title}</h2>
+          <p className={classes.content}>{content}</p>
         </CardContent>
       </Card>
     </div>

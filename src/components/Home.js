@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { firestore } from '../firebase/firebase';
 import firebase from '../firebase/firebase';
 import { useCollectionData } from 'react-firebase-hooks/firestore';
+import PostCard from './PostCard';
 
 export default function Home() {
   // const [posts, setPosts] = useState([]);
@@ -18,7 +19,7 @@ export default function Home() {
 			<h1 style={{ color: '#00c5cd' }}>Borus</h1>
 			<p style={{ textAlign: 'left' }}>Welcome to Borus</p>
       <div>
-        {posts ? posts.map((post) => (<p>{post.title}</p>)) : null}
+        {posts ? posts.map((post) => (<PostCard title={post.title} content={post.content} />)) : null}
       </div>
 		</div>
 	);
